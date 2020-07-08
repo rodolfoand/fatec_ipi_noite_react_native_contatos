@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, TextInput, Button } from 'react-native';
+import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+
 
 const ContatoInput = (props) => {
 
@@ -29,10 +31,10 @@ const ContatoInput = (props) => {
       />
     </View>
     <View style={estilos.botao}>
-      <Button
-        title="Limpar Contatos"
-        onPress={() => {props.onApagarTudo()}}
-      />
+        <Button
+          title="Limpar Contatos"
+          onPress={() => { props.onApagarTudo() }}
+        />
     </View>
   </View>
   );
