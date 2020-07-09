@@ -30,12 +30,6 @@ const ContatoInput = (props) => {
                 nome, telefone)}
       />
     </View>
-    <View style={estilos.botao}>
-        <Button
-          title="Limpar Contatos"
-          onPress={() => { props.onApagarTudo() }}
-        />
-    </View>
   </View>
   );
 }

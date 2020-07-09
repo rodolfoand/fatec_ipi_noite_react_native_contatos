@@ -16,8 +16,8 @@ const ListaContatosTela = (props) => {
     const excluirContato = (key) => {
         dispatch(contatosActions.rmvContato(key));
     }
-    
-    return (        
+
+    return (
         <View>
             <FlatList
                 data={contatos}
@@ -31,13 +31,13 @@ const ListaContatosTela = (props) => {
                     )
                 }
             />
-        </View>        
+        </View>
     );
 }
-ListaContatosTela.navigationOptions = dadosNav  => {
+ListaContatosTela.navigationOptions = dadosNav => {
     return {
         headerTitle: 'Lista de contatos',
-        headerRight:
+        headerRight: () => 
             <HeaderButtons
                 HeaderButtonComponent={BotaoCabecalho}>
                 <Item
