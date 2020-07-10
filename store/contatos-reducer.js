@@ -13,10 +13,12 @@ export default (estado = estadoInicial, action) => {
             const l = new Contato(
                 new Date().toString()
                 , action.dadosContato.nome
-                , action.dadosContato.telefone);
+                , action.dadosContato.telefone
+                , action.dadosContato.imagem);
             return {
-                contatos: estado.contatos.concat(l)
-            };
+                contatos: estado.contatos.filter(contato => { return contato.key != action.dadosContato.key }).concat(l)
+            }
+
         case RMV_CONTATO:
             return {
                 contatos: estado.contatos.filter(contato => { return contato.key != action.dadosContato.key })

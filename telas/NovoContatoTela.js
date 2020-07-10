@@ -10,25 +10,36 @@ import * as contatosActions from '../store/contatos-actions';
 const NovoContatoTela = (props) => {
 
     const dispatch = useDispatch();
+    const [contato, setContato] = useState({
+        key: null
+        , nome: ''
+        , telefone: ''
+        , imagemURI: ''
+    });
 
+    const salvarContato = (key, nome, telefone, imagem) => {
 
-    const adicionarContato = (nome, telefone) => {
-        
-        dispatch(contatosActions.addContato(nome, telefone));
+        dispatch(contatosActions.addContato(null, nome, telefone, imagem));
         props.navigation.goBack();
-        
+
     }
 
     return (
         <View>
             <View>
                 <ContatoInput
-                    onAdicionarContato={adicionarContato}
+                    onSalvarContato={salvarContato}
+                    contato={contato}
                 />
             </View>
         </View>
     );
 }
+NovoContatoTela.navigationOptions = (dadosNav) => {
+    return {
+        headerTitle: "Novo contato"
+    }
+};
 
 const estilos = StyleSheet.create({
 

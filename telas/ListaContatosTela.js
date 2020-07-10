@@ -20,6 +20,7 @@ const ListaContatosTela = (props) => {
     return (
         <View>
             <FlatList
+                style={{width:'80%', alignSelf: 'center', marginTop: 8}}
                 data={contatos}
                 keyExtractor={contato => contato.key}
                 renderItem={
@@ -27,6 +28,11 @@ const ListaContatosTela = (props) => {
                         <ContatoItem
                             contato={contato.item}
                             onDelete={excluirContato}
+                             onSelect={() =>
+                                 props.navigation.navigate('DetalheDoContato', {
+                                     contato: contato.item
+                                 })}
+                            imagem={contato.item.imagemURI}
                         />
                     )
                 }
@@ -37,7 +43,7 @@ const ListaContatosTela = (props) => {
 ListaContatosTela.navigationOptions = dadosNav => {
     return {
         headerTitle: 'Lista de contatos',
-        headerRight: () => 
+        headerRight: () =>
             <HeaderButtons
                 HeaderButtonComponent={BotaoCabecalho}>
                 <Item
